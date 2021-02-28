@@ -78,20 +78,120 @@ Una vez hayamos iniciado sesión en el lateral izquierdo nos aparecerá la sigui
      null...
 ```
 
+## Primer proyecto en TypeScript
 
+Antes de empezar con nuestro proyecto debemos instalar la extension *ESLint*, la cual nos permitirá realizar comprobaciones sobre el estilo de nuestros ficheros que incluyen el código fuente en **JavaScript** y **TypeScript**. Para su instalación repetiremos lo mismo que con las extensiones anteriores, iremos al panel izquierdo, haremos clic sobre el botón de *Extensions* y en el buscador pondremos *ESLint* y pulsaremos finalmente sobre *Install*, una vez finalizado ya estaría lista para ser usada. Además si estamos habituados a usar *Vim* podremos instalar esta extensión de la misma manera.
 
+Ahora instalaremos el compilador de TypeScript usando NPM (Node Package Manager) en nuestra máquina virtual. Para ello abriremos una terminal en Visual Studio Code, para ello hay dos formas, la primera es ir al menú superior, hacer clic sobre *Terminal* -> *New Terminal* o la otra forma es con la combinación de teclas *[Ctrl + Shift + ']*. Una vez abierta introducimos el siguiente comando: 
 
+```
+[~()]$npm install --global typescript
 
+added 1 package, and audited 2 packages in 4s
 
+found 0 vulnerabilities
 
+[~()]$tsc --version
+Version 4.2.2
+```
+Al poner el argumento *--global* hacemos que el paquete que se va a instalar, lo haga de manera global.
 
+Una vez llegado hasta aquí ya habremos instalado el compilador TypeScript. El siguiente paso es crear el directorio de trabajo para nuestro proyecto, para ello realizaremos los siguiente comandos para crearlo en la ruta */home/usuario*. Una vez allí con un *npm init --yes* haremos que se inicialice nuestro proyecto creando el fichero *package.json* que establecerá las dependencias para el desarrollo y ejecución de nuestro proyecto.
 
+```
+[~()]$pwd
+/home/usuario
+[~()]$mkdir hello-world
+[~()]$cd hello-world/
+[~/hello-world()]$npm init --yes
+Wrote to /home/usuario/hello-world/package.json:
 
+{
+  "name": "hello-world",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
 
+[~/hello-world()]$ls -lrtha
+total 12K
+drwxr-xr-x 11 usuario usuario 4,0K feb 24 10:11 ..
+-rw-rw-r--  1 usuario usuario  225 feb 24 10:12 package.json
+drwxrwxr-x  2 usuario usuario 4,0K feb 24 10:12 .
+```
+Una vez creado vamos a hacer que el VSC muestre el directorio, para ello en el menú superior, hacemos clic en *File* -> *Open Folder* y elegimos el directorio deseado, en nuestro caso *hello-world*.
 
+Tambien se podrá añadir a un *workspace* (espacio de trabajo). Para ello volvemos a ir al apartado de *File* y seleccionaremos esta vez *Add Folder to Workspace*. Seleccionamos nuestra carpeta *hello-world*. Si no teníamos un *workspace* crearemos uno. Guardamos el espacio de trabajo con la opcion de *Save Workspace As* del apartado *File*, escribimos el respectivo nombre y pulsamos *Ok*.
 
+El siguiente paso es que creemos un nuevo fichero en nuestro directorio ```hello-world``` denominado ```tsconfig.json```. En este fichero se especifican las opciones del compilador de TypeScript.
 
+ ```
+ [~/hello-world()]$touch tsconfig.json
+[~/hello-world()]$vi tsconfig.json 
+[~/hello-world()]$cat tsconfig.json 
+{
+        "compilerOptions": {
+                "target": "ES2018",
+                "outDir": "./dist",
+                "rootDir": "./src",
+                "module": "CommonJS"
+        }
+}
+```
 
+Estas opciones que hemos añadido al fichero ```tsconfig.json``` le indican al compilador de TypeScript que primero queremos que genere un código que sea compatible con los últimos estándares de JavaScript. El código JavaScript producto de la compilación se almacenará en un directorio llamado ```dist```. El código fuente en TypeScript se almacenará en el directorio ```src```. Por último, se indica un estándar para cargar código desde ficheros independientes.
+
+Ahora crearemos un fichero para el codigo TypeScript de la siguiente manera: 
+
+```
+[~/hello-world()]$pwd
+/home/usuario/hello-world
+[~/hello-world()]$mkdir src
+[~/hello-world()]$cd src
+[~/hello-world/src()]$touch index.ts
+[~/hello-world/src()]$ls
+index.ts
+```
+Vamos a añadir una simples lineas al código, en este caso un *"Hola Mundo"*.
+
+```
+[~/hello-world/src()]$vi index.ts 
+[~/hello-world/src()]$cat index.ts 
+let myString: string = "Hola Mundo";
+console.log(myString);
+```
+Para compilar el código escrito antes, usamos el siguiente comando:
+
+```
+[~/hello-world/src()]$tsc
+```
+
+Esto ha creado el directorio *dist*, ademas se creo un fichero ```index.js```. Como podemos ver tenemos dos index.js en diferentes carpetas, vamos a ver si el contenido de los archivos es igual.
+
+```
+[~/hello-world/src()]$cat index.ts 
+let myString: string = "Hola Mundo";
+console.log(myString);
+
+[~/hello-world/src()]$cat ../dist/index.js 
+let myString = "Hola Mundo";
+console.log(myString);
+```
+
+Como se puede apreciar claramente, la diferencia reside en la declaracion de la variable myString, esto ocurre ya que como bien sabemos, TypeScript si utiliza tipos para tratar de evitar los problemas que surgen con JavaScript, ya que este ultimo no es un lenguaje tipado.
+
+Para ejecutar el código de JavaScript generado a partir del código TypeScript se hace mediante el comando:
+
+```
+[~/hello-world()]$node dist/index.js 
+Hola Mundo
+```
 
 
 
