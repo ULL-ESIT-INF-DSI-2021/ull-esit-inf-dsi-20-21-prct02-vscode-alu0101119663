@@ -193,6 +193,18 @@ Para ejecutar el código de JavaScript generado a partir del código TypeScript 
 Hola Mundo
 ```
 
+## Conclusiones
+La realización de esta práctica me ha resultado que no tenía un gran nivel de dificultad debido a que he ido usando Visual Studio Code y muchas de sus extensiones durante todo el transcurso de la carrera. Sin embargo, me ha parecido realmente útil la extensión para realizar sesiones colaborativas ya que desconocía la existencias de ellas, veo que su utilización es vital en caso de desarrollar proyectos en grupos y queramos hacerlo en tiempo real. En cuanto las conexiones remotas, como SSH y sesiones colaborativas cabe resaltar que se han llevado a cabo de forma satisfactoria. Por úlitmo acerca TypeScript, decir que nunca había realizado ningún proyecto en dicho lenguaje, me parece bastante asequible en cuanto a difucultad por el momento.
+
+## Bibliografía
+- Guión de la Práctica - https://ull-esit-inf-dsi-2021.github.io/prct02-vscode/
+- Visual Studio Code - https://es.wikipedia.org/wiki/Visual_Studio_Code
+- Paquetes Snap de Ubuntu - https://www.profesionalreview.com/2016/04/21/conoce-los-paquetes-snap-ubuntu/
+- VSCode Extension Marketplace - https://code.visualstudio.com/docs/editor/extension-gallery
+- Remote SSH: Tips and Tricks - https://code.visualstudio.com/blogs/2019/10/03/remote-ssh-tips-and-tricks
+- Live Share Extension Pack - https://visualstudio.microsoft.com/es/services/live-share/
+- TypeScript - https://es.wikipedia.org/wiki/TypeScript
+- Configurar un proyecto para usar TypeScript - https://desarrolloweb.com/articulos/configurar-proyecto-typescript.html
 
 
 
