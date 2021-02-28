@@ -52,9 +52,9 @@ iaas-dsi55
 ```
 
 ### Sesiones colaborativas con Visual Studio Live Share
-Visual Studio Live Share permite que varias personas puedan colaborar en un proyecto que tengan en común en tiempo real. Para poder utilizar esta función que nos ofrece Visual Studio Code, debemos instalar una extensión llamada [Live Share Extension Pack](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) así como todas las que se nos recomienda en el manual anterior. 
+**Visual Studio Live Share** permite que varias personas puedan colaborar en un proyecto que tengan en común en tiempo real. Para poder utilizar esta función que nos ofrece Visual Studio Code, debemos instalar una extensión llamada [Live Share Extension Pack](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) así como todas las que se nos recomienda en el manual anterior. 
 
-Para instalar las extensiones debemos recordar en qué máquina estamos y donde queremos instalarla, ya que si la instalamos en la máquina virtual no estarán en la local, y para instalarla debemos salir de la conexión mediante SSH,y quedarnos con la ventana del Visual Studio Code de la máquina local.
+Para instalar las extensiones debemos recordar en qué máquina estamos y donde queremos instalarla, ya que si la instalamos en la máquina virtual no estarán en la local, y para instalarla debemos salir de la conexión mediante **SSH**,y quedarnos con la ventana del Visual Studio Code de la máquina local.
 
 Una vez instalada, podemos abrir un proyecto para editar nosotros solos, o pinchar sobre el botón con forma de flecha en el lateral izquierdo, y nos ofrecerá crear una sesión colaborativa o unirnos a una ya creada. Con esta extensión podremos realizar sesiones colaborativas como se ha dicho, además de otras funcionalidades como chats, llamadas o pizarra.
 
@@ -82,7 +82,7 @@ Una vez hayamos iniciado sesión en el lateral izquierdo nos aparecerá la sigui
 
 Antes de empezar con nuestro proyecto debemos instalar la extension *ESLint*, la cual nos permitirá realizar comprobaciones sobre el estilo de nuestros ficheros que incluyen el código fuente en **JavaScript** y **TypeScript**. Para su instalación repetiremos lo mismo que con las extensiones anteriores, iremos al panel izquierdo, haremos clic sobre el botón de *Extensions* y en el buscador pondremos *ESLint* y pulsaremos finalmente sobre *Install*, una vez finalizado ya estaría lista para ser usada. Además si estamos habituados a usar *Vim* podremos instalar esta extensión de la misma manera.
 
-Ahora instalaremos el compilador de TypeScript usando NPM (Node Package Manager) en nuestra máquina virtual. Para ello abriremos una terminal en Visual Studio Code, para ello hay dos formas, la primera es ir al menú superior, hacer clic sobre *Terminal* -> *New Terminal* o la otra forma es con la combinación de teclas *[Ctrl + Shift + ']*. Una vez abierta introducimos el siguiente comando: 
+Ahora instalaremos el compilador de TypeScript usando **NPM** (Node Package Manager) en nuestra máquina virtual. Para ello abriremos una terminal en Visual Studio Code, para ello hay dos formas, la primera es ir al menú superior, hacer clic sobre *Terminal* -> *New Terminal* o la otra forma es con la combinación de teclas *[Ctrl + Shift + ']*. Una vez abierta introducimos el siguiente comando: 
 
 ```
 [~()]$npm install --global typescript
@@ -96,7 +96,7 @@ Version 4.2.2
 ```
 Al poner el argumento *--global* hacemos que el paquete que se va a instalar, lo haga de manera global.
 
-Una vez llegado hasta aquí ya habremos instalado el compilador TypeScript. El siguiente paso es crear el directorio de trabajo para nuestro proyecto, para ello realizaremos los siguiente comandos para crearlo en la ruta */home/usuario*. Una vez allí con un *npm init --yes* haremos que se inicialice nuestro proyecto creando el fichero *package.json* que establecerá las dependencias para el desarrollo y ejecución de nuestro proyecto.
+Una vez llegado hasta aquí ya habremos instalado el compilador **TypeScript**. El siguiente paso es crear el directorio de trabajo para nuestro proyecto, para ello realizaremos los siguiente comandos para crearlo en la ruta */home/usuario*. Una vez allí con un *npm init --yes* haremos que se inicialice nuestro proyecto creando el fichero *package.json* que establecerá las dependencias para el desarrollo y ejecución de nuestro proyecto.
 
 ```
 [~()]$pwd
@@ -125,11 +125,11 @@ drwxr-xr-x 11 usuario usuario 4,0K feb 24 10:11 ..
 -rw-rw-r--  1 usuario usuario  225 feb 24 10:12 package.json
 drwxrwxr-x  2 usuario usuario 4,0K feb 24 10:12 .
 ```
-Una vez creado vamos a hacer que el VSC muestre el directorio, para ello en el menú superior, hacemos clic en *File* -> *Open Folder* y elegimos el directorio deseado, en nuestro caso *hello-world*.
+Una vez creado vamos a hacer que el **VSC** muestre el directorio, para ello en el menú superior, hacemos clic en *File* -> *Open Folder* y elegimos el directorio deseado, en nuestro caso *hello-world*.
 
 Tambien se podrá añadir a un *workspace* (espacio de trabajo). Para ello volvemos a ir al apartado de *File* y seleccionaremos esta vez *Add Folder to Workspace*. Seleccionamos nuestra carpeta *hello-world*. Si no teníamos un *workspace* crearemos uno. Guardamos el espacio de trabajo con la opcion de *Save Workspace As* del apartado *File*, escribimos el respectivo nombre y pulsamos *Ok*.
 
-El siguiente paso es que creemos un nuevo fichero en nuestro directorio ```hello-world``` denominado ```tsconfig.json```. En este fichero se especifican las opciones del compilador de TypeScript.
+El siguiente paso es que creemos un nuevo fichero en nuestro directorio ```hello-world``` denominado ```tsconfig.json```. En este fichero se especifican las opciones del compilador de **TypeScript**.
 
  ```
  [~/hello-world()]$touch tsconfig.json
@@ -145,9 +145,9 @@ El siguiente paso es que creemos un nuevo fichero en nuestro directorio ```hello
 }
 ```
 
-Estas opciones que hemos añadido al fichero ```tsconfig.json``` le indican al compilador de TypeScript que primero queremos que genere un código que sea compatible con los últimos estándares de JavaScript. El código JavaScript producto de la compilación se almacenará en un directorio llamado ```dist```. El código fuente en TypeScript se almacenará en el directorio ```src```. Por último, se indica un estándar para cargar código desde ficheros independientes.
+Estas opciones que hemos añadido al fichero ```tsconfig.json``` le indican al compilador de **TypeScript** que primero queremos que genere un código que sea compatible con los últimos estándares de **JavaScript**. El código **JavaScript** producto de la compilación se almacenará en un directorio llamado ```dist```. El código fuente en **TypeScript* se almacenará en el directorio ```src```. Por último, se indica un estándar para cargar código desde ficheros independientes.
 
-Ahora crearemos un fichero para el codigo TypeScript de la siguiente manera: 
+Ahora crearemos un fichero para el codigo **TypeScript** de la siguiente manera: 
 
 ```
 [~/hello-world()]$pwd
@@ -172,7 +172,7 @@ Para compilar el código escrito antes, usamos el siguiente comando:
 [~/hello-world/src()]$tsc
 ```
 
-Esto ha creado el directorio *dist*, ademas se creo un fichero ```index.js```. Como podemos ver tenemos dos index.js en diferentes carpetas, vamos a ver si el contenido de los archivos es igual.
+Esto ha creado el directorio *dist*, ademas se creo un fichero ```index.js```. Como podemos ver tenemos dos **index.js** en diferentes carpetas, vamos a ver si el contenido de los archivos es igual.
 
 ```
 [~/hello-world/src()]$cat index.ts 
@@ -184,9 +184,9 @@ let myString = "Hola Mundo";
 console.log(myString);
 ```
 
-Como se puede apreciar claramente, la diferencia reside en la declaracion de la variable myString, esto ocurre ya que como bien sabemos, TypeScript si utiliza tipos para tratar de evitar los problemas que surgen con JavaScript, ya que este ultimo no es un lenguaje tipado.
+Como se puede apreciar claramente, la diferencia reside en la declaracion de la variable **myString**, esto ocurre ya que como bien sabemos, **TypeScript** si utiliza tipos para tratar de evitar los problemas que surgen con **JavaScript**, ya que este ultimo no es un lenguaje tipado.
 
-Para ejecutar el código de JavaScript generado a partir del código TypeScript se hace mediante el comando:
+Para ejecutar el código de **JavaScript** generado a partir del código **TypeScript** se hace mediante el comando:
 
 ```
 [~/hello-world()]$node dist/index.js 
